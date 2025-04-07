@@ -1,0 +1,7 @@
+void gamemode() {
+
+}
+
+void gameModeClicks() {
+
+}
