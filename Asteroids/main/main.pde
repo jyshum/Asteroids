@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //mode variables
 int mode;
 final int INTRO = 0;
@@ -13,30 +15,68 @@ int transitionCounter;
 //color pallette
 color black = #000000;
 color white = #FFFFFF;
+color silver = #D9EFFC;
+color board = #CCDDE8;
 
 //font and image variables
 PFont DeepwokenFont;
-PImage SilverSurfer; 
+PImage SilverSurfer;
+
+//objects
+Spaceship player1;
+
+//List of bullets
+ArrayList<GameObject> objects;
+ArrayList<GameObject> bullets;
+
+
+//keyboard variables
+boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey, ctrlkey;
+
+//star
+Star[] myStars;
+int numstars;
+float starCounter;
 
 void setup() {
 
-  size(1000,800);
-  
+  size(1000, 800);
+
   //text Stuff
   textAlign(CENTER, CENTER);
-  DeepwokenFont = createFont("Fondamento-Regular.ttf",1); 
-  
+  DeepwokenFont = createFont("Fondamento-Regular.ttf", 1);
   //image stuff
   imageMode(CENTER);
   SilverSurfer = loadImage("silverone.png");
+  //player stuff
+  objects = new ArrayList();
+  player1 = new Spaceship();
+  objects.add(player1);
+  objects.add(new Asteroid());
+  objects.add(new Asteroid());
+  objects.add(new Asteroid());
+  objects.add(new Asteroid());
+  objects.add(new Asteroid());
+  bullets = new ArrayList();
   
+  mode = INTRO;
+  
+  numstars = 100;
+  myStars = new Star[numstars];
+  starCounter = 0;
+
+  int i = 0;
+  while (i < numstars) {
+    myStars[i] = new Star();
+    i = i + 1;
+  }
 }
 
 void draw() {
-  
-    mode = INTRO;
-  
-    if (mode == INTRO) {
+
+  //mode = INTRO;
+
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAMEMODE) {
     gamemode();
@@ -53,4 +93,6 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
+  
+
 }

@@ -5,6 +5,6 @@ void transition() {
     transitionCounter = transitionCounter + 1;
   }
   
-  fill(0,20);
+  fill(0,10);
   rect(0,0,1000,800);
 }
