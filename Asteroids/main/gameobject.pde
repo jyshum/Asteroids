@@ -15,11 +15,16 @@ class GameObject {
     loc = l;
     vel = v;
     lives = 1;
+    println(lives);
   }
   
   GameObject(PVector l, PVector v, int lv) {
     loc = l;
     vel = v;
+    lives = lv;
+  }
+  
+  GameObject(int lv) {
     lives = lv;
   }
   

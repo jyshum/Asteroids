@@ -37,6 +37,9 @@ boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey, ctrlkey
 Star[] myStars;
 int numstars;
 float starCounter;
+BackStar[] myBackStars;
+int numBackStars;
+float BackStarCounter;
 
 void setup() {
 
@@ -52,7 +55,6 @@ void setup() {
   objects = new ArrayList();
   player1 = new Spaceship();
   objects.add(player1);
-  objects.add(new Asteroid());
   objects.add(new Asteroid());
   objects.add(new Asteroid());
   objects.add(new Asteroid());
