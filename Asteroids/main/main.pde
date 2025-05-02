@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 import java.util.ArrayList;
 
 //mode variables
@@ -17,6 +24,9 @@ color black = #000000;
 color white = #FFFFFF;
 color silver = #D9EFFC;
 color board = #CCDDE8;
+color blue = #335AF0;
+color blueFlame = #3481BF;
+color orange = #F77B3C;
 
 //font and image variables
 PFont DeepwokenFont;
@@ -43,35 +53,52 @@ float BackStarCounter;
 
 void setup() {
 
-  size(1000, 800);
+  size(1000, 800, P2D);
 
   //text Stuff
   textAlign(CENTER, CENTER);
-  DeepwokenFont = createFont("Fondamento-Regular.ttf", 1);
+  DeepwokenFont = createFont("Fondamento-Regular.ttf", 60);
   //image stuff
   imageMode(CENTER);
   SilverSurfer = loadImage("silverone.png");
   //player stuff
-  objects = new ArrayList();
-  player1 = new Spaceship();
-  objects.add(player1);
-  objects.add(new Asteroid());
-  objects.add(new Asteroid());
-  objects.add(new Asteroid());
-  objects.add(new Asteroid());
-  bullets = new ArrayList();
-  
+  //objects = new ArrayList();
+  //player1 = new Spaceship();
+  //objects.add(player1);
+  //objects.add(new Asteroid());
+  //objects.add(new Asteroid());
+  //objects.add(new Asteroid());
+  //objects.add(new Asteroid());
+  //bullets = new ArrayList();
+  resetGame();
   mode = INTRO;
   
   numstars = 100;
   myStars = new Star[numstars];
   starCounter = 0;
 
+
+
   int i = 0;
   while (i < numstars) {
     myStars[i] = new Star();
     i = i + 1;
   }
+  
+  textFont(DeepwokenFont);
+}
+
+void resetGame() {
+  objects = new ArrayList();
+  bullets = new ArrayList();
+  
+  player1 = new Spaceship();
+  objects.add(player1);
+
+  for (int i = 0; i < 4; i++) {
+    objects.add(new Asteroid());
+  }
+  mode = INTRO;
 }
 
 void draw() {

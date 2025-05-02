@@ -12,7 +12,7 @@ class Asteroid extends GameObject {
     lives = 4;
     d = lives*sizeFactor;
     angle = 0;
-    rotSpeed = random(-2, 2);
+    rotSpeed = random(-1, 1);
     build();
   }
 
@@ -22,7 +22,7 @@ class Asteroid extends GameObject {
     d = lives*sizeFactor;
     this.lives = lives;
     angle = 0;
-    rotSpeed = random(-3, 3);
+    rotSpeed = random(-2, 2);
     build();
   }
 
@@ -37,8 +37,7 @@ class Asteroid extends GameObject {
       rock.vertex(plot.x, plot.y);
       i++;
     }
-    rock.fill(#6C6C6C);
-    rock.stroke(255);
+    
     rock.endShape(CLOSE);
   }
 
@@ -50,7 +49,10 @@ class Asteroid extends GameObject {
 
   void show() {
     pushMatrix();
+    rock.setFill(black);
     fill(black);
+    stroke(white);
+    rock.setStroke(white);
     translate(loc.x, loc.y);
     rotate(radians(angle));
     shape(rock, 0, 0);
@@ -99,8 +101,8 @@ class Asteroid extends GameObject {
             asteroid1.d = d * 0.65;
             asteroid2.d = d * 0.65;
 
-            asteroid1.loc = new PVector(loc.x + random(-10, 10), loc.y + random(-10, 10));
-            asteroid2.loc = new PVector(loc.x + random(-10, 10), loc.y + random(-10, 10));
+            asteroid1.loc = new PVector(loc.x + random(-70, 50), loc.y + random(-70, 50));
+            asteroid2.loc = new PVector(loc.x + random(-70, 50), loc.y + random(-70, 50));
 
             asteroid1.vel.setMag(random(1, 1.5));
             asteroid2.vel.setMag(random(1, 1.5));
