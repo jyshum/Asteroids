@@ -6,10 +6,10 @@ class BackStar {
   BackStar() {
     x = random(0, width);
     y = random(0, height);
-    vx = random(5,8);
+    vx = random(5, 8);
     vy = random(10, 15);
-    transp2 = random(0,255);
-    size = random(2,3);
+    transp2 = random(0, 255);
+    size = random(2, 3);
   }
 
   void show() {
@@ -21,9 +21,9 @@ class BackStar {
   void act() {
     BackStarCounter = BackStarCounter + 1;
     if (BackStarCounter > 120) {
-     transp2 = random(0,255);
-     size = random(4,7);
-    BackStarCounter = 0;
+      transp2 = random(0, 255);
+      size = random(4, 7);
+      BackStarCounter = 0;
     }
     //x = x + vx;
     //y = y + vy;

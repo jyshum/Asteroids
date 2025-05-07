@@ -37,24 +37,26 @@ class Asteroid extends GameObject {
       rock.vertex(plot.x, plot.y);
       i++;
     }
-    
     rock.endShape(CLOSE);
+    
+    rock.disableStyle();
   }
 
   void asteroidStuff() {
     vel.setMag(random(0.75, 1.25));
     vel.rotate(random(TWO_PI));
   }
-
+  
+  void randomGrey() {
+    fill(random(150,220));
+  }
 
   void show() {
     pushMatrix();
-    rock.setFill(black);
-    fill(black);
-    stroke(white);
-    rock.setStroke(white);
     translate(loc.x, loc.y);
     rotate(radians(angle));
+    stroke(245);
+    fill(100);
     shape(rock, 0, 0);
     //ellipse(0,0,d,d);
     popMatrix();

@@ -27,6 +27,7 @@ color board = #CCDDE8;
 color blue = #335AF0;
 color blueFlame = #3481BF;
 color orange = #F77B3C;
+color grey = #A2A2A2;
 
 //font and image variables
 PFont DeepwokenFont;
@@ -52,7 +53,7 @@ int numBackStars;
 float BackStarCounter;
 
 void setup() {
-
+  
   size(1000, 800, P2D);
 
   //text Stuff
@@ -72,7 +73,7 @@ void setup() {
   //bullets = new ArrayList();
   resetGame();
   mode = INTRO;
-  
+
   numstars = 100;
   myStars = new Star[numstars];
   starCounter = 0;
@@ -84,16 +85,15 @@ void setup() {
     myStars[i] = new Star();
     i = i + 1;
   }
-  
+
   textFont(DeepwokenFont);
 }
 
 void resetGame() {
   objects = new ArrayList();
   bullets = new ArrayList();
-  
+
   player1 = new Spaceship();
-  objects.add(player1);
 
   for (int i = 0; i < 4; i++) {
     objects.add(new Asteroid());
@@ -122,6 +122,4 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  
-
 }
