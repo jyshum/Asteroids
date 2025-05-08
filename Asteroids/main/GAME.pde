@@ -1,7 +1,7 @@
 void game() {
   background(black);
 
-
+  
   int i = 0;
   while (i < objects.size()) {
     GameObject currentObject = objects.get(i);

@@ -43,7 +43,7 @@ class Spaceship extends GameObject {
     cooldown--;
     if (ekey && cooldown <= 0 && invTimer <= 0) {
       objects.add(new Bullet());
-      cooldown = 40;
+      cooldown = 100;
     }
   }
 
@@ -113,18 +113,18 @@ class Spaceship extends GameObject {
       GameObject obj = objects.get(i);
       if (obj instanceof Asteroid) {
         if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) < d / 2 + obj.d / 2) {
+           
           if (invTimer <= 0) {
             if (obj.lives == 4) {
-              lives = lives - 4;
+              lives -= 4;
+            } else if (obj.lives == 3) {
+              lives -= 3;
             }
-            if (obj.lives == 3) {
-              lives = lives - 3;
+             else if (obj.lives == 2) {
+              lives -= 2;
             }
-            if (obj.lives == 2) {
-              lives = lives - 2;
-            }
-            if (obj.lives == 1) {
-              lives = lives - 1;
+            else if (obj.lives == 1) {
+              lives -= 1;
             }
             obj.lives = 0;
           }
@@ -136,22 +136,22 @@ class Spaceship extends GameObject {
   int deathTimerDelay;
   boolean dead = false;
 
+
   void checkForDeath() {
-    if (lives == 0) {
+    if (lives <= 0) {
       dead = true;
-      println(dead);
-      deathTimerDelay = 60;
-      println(deathTimerDelay);
+      //println(dead);
+      //deathTimerDelay = 60;
+      //println(deathTimerDelay);
     }
     if (dead) {
-      deathTimerDelay -= 1;
-      println(deathTimerDelay);
+      //deathTimerDelay -= 1;
+      //println(deathTimerDelay);
       
-      if (deathTimerDelay <= 0) {
-        mode = TRANSITION;
-        TRANSITIONMODE = GAMEOVER;
-        transitionCounter = 0;
-      }
+      //if (deathTimerDelay <= 0) {
+        mode = GAMEOVER;
+
+      //}
     }
   }
 }

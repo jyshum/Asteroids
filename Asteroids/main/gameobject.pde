@@ -14,8 +14,8 @@ class GameObject {
   GameObject(PVector l, PVector v) {
     loc = l;
     vel = v;
-    lives = 1;
-    println(lives);
+    lives = 4;
+    
   }
   
   GameObject(PVector l, PVector v, int lv) {

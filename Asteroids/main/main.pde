@@ -104,7 +104,8 @@ void resetGame() {
 void draw() {
 
   //mode = INTRO;
-
+  println(player1.lives);
+  
   if (mode == INTRO) {
     intro();
   } else if (mode == GAMEMODE) {
